@@ -9,9 +9,12 @@
   <link rel="stylesheet" href="./dist/output.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins:regular,italic,500,500italic,600,600italic,700"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="bg-white dark:bg-white">
   <header class="py-4 px-6 md:px-10 w-screen bg-blue-300">
     <nav class="flex justify-between items-center">
       <div class="flex gap-3 items-center">
@@ -27,61 +30,27 @@
       </div>
     </nav>
   </header>
-  <div class="container py-4">
-    <form action="" class="space-x-3 w-full flex justify-center items-center">
-      <input type="text" class="outline-none py-1 px-2 border-2 border-blue-300 rounded-xl">
-      <button class="border-2 py-1 px-2 rounded-xl border-gray-600 bg-gray-600 text-white">Search</button>
+  <div class="container py-4 flex flex-col items-center">
+    <form action="" class="space-x-2 w-full flex justify-center items-center">
+      <input type="text" class="outline-none py-1 px-2 border-2 border-blue-300 rounded-md" id="searchInput">
+      <button class="border-2 py-1 px-2 rounded-md border-gray-600 bg-gray-600 text-white"
+        id="btnSearch">Search</button>
     </form>
-    <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-1 py-12 px-5" id="wrapper">
-      <div class="p-4 border-2 border-gray-700 rounded-lg space-y-2">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ug47WJ60alvRQWJFOkjmYsmmrhh.jpg" alt="spider man"
-          class="w-48 rounded-md">
-        <h4 class="text-xl font-semibold">
-          Spider-Man
-        </h4>
-        <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, minus. Lorem ipsum dolor
-          sit amet,
-          consectetur adipisicing elit. Vero, a.</p>
+    <div class="max-w-screen-xl">
+      <h3 class="pt-6 text-3xl font-semibold text-center">Popular</h3>
+      <div class="py-12 px-5 grid sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ph:grid-cols-2 grid-cols-1" id="wrapper">
       </div>
-      <div class="p-4 border-2 border-gray-700 rounded-lg space-y-2">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ug47WJ60alvRQWJFOkjmYsmmrhh.jpg" alt="spider man"
-          class="w-48 rounded-md">
-        <h4 class="text-xl font-semibold">
-          Spider-Man
-        </h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, minus. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Vero, a.</p>
-      </div>
-      <div class="p-4 border-2 border-gray-700 rounded-lg space-y-2">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ug47WJ60alvRQWJFOkjmYsmmrhh.jpg" alt="spider man"
-          class="w-48 rounded-md">
-        <h4 class="text-xl font-semibold">
-          Spider-Man
-        </h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, minus. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Vero, a.</p>
-      </div>
-      <div class="p-4 border-2 border-gray-700 rounded-lg space-y-2">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ug47WJ60alvRQWJFOkjmYsmmrhh.jpg" alt="spider man"
-          class="w-48 rounded-md">
-        <h4 class="text-xl font-semibold">
-          Spider-Man
-        </h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, minus. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Vero, a.</p>
-      </div>
-      <div class="p-4 border-2 border-gray-700 rounded-lg space-y-2">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ug47WJ60alvRQWJFOkjmYsmmrhh.jpg" alt="spider man"
-          class="w-48 rounded-md">
-        <h4 class="text-xl font-semibold">
-          Spider-Man
-        </h4>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, minus. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Vero, a.</p>
+      <div class="flex justify-center gap-6">
+        <button id="btnPrev">
+          <i class="fa-solid fa-angle-left text-2xl" id="btnLeft"></i>
+        </button>
+        <button id="btnNext">
+          <i class="fa-solid fa-angle-right text-2xl" id="btnRight"></i>
+        </button>
       </div>
     </div>
   </div>
-  <script src="./src/js/script.js"></script>
+  <script src="./src/js/cards.js" defer></script>
 </body>
 
 </html>
