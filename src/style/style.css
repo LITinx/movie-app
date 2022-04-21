@@ -15,3 +15,7 @@ p {
 .font-poppins {
   font-family: "Poppins", sans-serif;
 }
+
+.grid-col {
+  grid-column: 1/ -1;
+}
