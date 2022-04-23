@@ -8,6 +8,7 @@ const searcBtn = document.getElementById('btnSearch')
 const searchInput = document.getElementById('searchInput')
 const popularWrapper = document.querySelector('.popular')
 let pages = 1
+let searchPages = 1
 btnNext.addEventListener('click', () => {
 	if (pages < 15) {
 		pages++
@@ -34,7 +35,7 @@ searcBtn.addEventListener('click', (e) => {
 const searchMovies = async (searchValue) => {
 	wrapper.innerHTML = ''
 	const res = await fetch(`
-		https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false
+		https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&query=${searchValue}&page=${searchPages}&include_adult=false
 	`)
 	const data = await res.json()
 	popularWrapper.innerHTML = 'Search Results'
@@ -98,7 +99,7 @@ const pagesChecker = () => {
 const carts = (movie) => {
 	wrapper.innerHTML += `
   <div class="p-4 space-y-2 w-48 ">
-      <img src="${
+      <img loading="lazy" src="${
 				movie.poster_path
 					? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`
 					: 'https://www.ceeol.com/images/no-image.jpg'
