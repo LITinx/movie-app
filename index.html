@@ -25,7 +25,9 @@
         <ul class="flex space-x-8 font-poppins font-medium">
           <li><a href="">Home</a></li>
           <li><a href="">Menu</a></li>
-          <li><a href="">About</a></li>
+          <ul>
+            li*
+          </ul>
         </ul>
       </div>
     </nav>
@@ -40,15 +42,16 @@
       <h3 class="pt-6 text-3xl font-semibold text-center popular">Popular</h3>
       <div class="py-12 px-5 grid sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ph:grid-cols-2 grid-cols-1" id="wrapper">
       </div>
-      <div class="flex justify-center gap-6">
-        <button id="btnPrev">
-          <i class="fa-solid fa-angle-left text-2xl" id="btnLeft"></i>
-        </button>
-        <button id="btnNext">
-          <i class="fa-solid fa-angle-right text-2xl" id="btnRight"></i>
-        </button>
-      </div>
     </div>
+    <div class="flex justify-center gap-6">
+      <button id="btnPrev">
+        <i class="fa-solid fa-angle-left text-2xl" id="btnLeft"></i>
+      </button>
+      <button id="btnNext">
+        <i class="fa-solid fa-angle-right text-2xl" id="btnRight"></i>
+      </button>
+    </div>
+  </div>
   </div>
   <script src="./src/js/cards.js" defer></script>
 </body>

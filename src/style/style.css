@@ -19,3 +19,9 @@ p {
 .grid-col {
   grid-column: 1/ -1;
 }
+
+.rate {
+  position: absolute;
+  top: -19px;
+  left: 10px;
+}
