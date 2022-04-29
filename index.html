@@ -14,25 +14,36 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-white dark:bg-white">
-  <header class="py-4 px-6 md:px-12 lg:px-48 w-screen">
+<body class="bg-white dark:bg-white overflow-x-hidden">
+  <header class="py-4 px-6 md:px-24 lg:px-48 w-screen bg-gray-500">
     <nav class="flex justify-between items-center">
-      <div class="flex gap-3 items-center">
-        <img src="./assets/images/filmLogo.png" alt="film logo" class="w-12">
-        <h1 class="text-3xl uppercase font-poppins font-bold">Movie</h1>
+      <div class="flex gap-3 items-center ">
+        <img src="./assets/images/filmLogo.png" alt="film logo" class="w-12 z-10">
+        <h1 class="text-3xl uppercase font-poppins font-bold z-10">Movie</h1>
       </div>
-      <div class="">
-        <ul class="flex space-x-8 font-poppins font-medium">
-          <li><a href="">Home</a></li>
-          <li><a href="">Menu</a></li>
-          <ul>
-            li*
+      <div class="mr-3 sm:mr-6">
+        <!-- <i class="fa-solid fa-bars text-3xl mr-3 cursor-pointer"></i> -->
+        <div class="burger cursor-pointer">
+          <span></span>
+        </div>
+        <nav class="menuNav">
+          <ul
+            class="md:space-x-8 font-poppins font-medium flex z-10 md:flex-row flex-col justify-center items-center space-y-9 md:space-y-0 md:justify-start md:items-start text-3xl md:text-base ">
+            <li><a href="">Home</a></li>
+            <li class="menu cursor-pointer ml-4 ">Menu <i class="ml-1 fa-solid fa-caret-down"></i>
+              <ul
+                class="mt-2 absolute space-y-1 hidden rounded-md ulMenu  md:bg-gray-100 md:text-sm text-xl transition-all duration-200">
+                <li class="hover:bg-gray-200 py-2 px-3 rounded-md cursor-pointer" id="popular">Popular</li>
+                <li class="hover:bg-gray-200 py-2 px-3 rounded-md  cursor-pointer" id="topRated">Top Rated</li>
+                <li class="hover:bg-gray-200 py-2 px-3 rounded-md cursor-pointer" id="upcoming">Upcoming</li>
+              </ul>
+            </li>
           </ul>
-        </ul>
+        </nav>
       </div>
     </nav>
   </header>
-  <div class="container py-4 flex flex-col items-center">
+  <div class="container py-6 flex flex-col items-center">
     <form action="" class="space-x-2 w-full flex justify-center items-center">
       <input type="text" class="outline-none py-1 px-2 border-2 border-gray-700 rounded-md" id="searchInput">
       <button class="border-2 py-1 px-2 rounded-md border-gray-800 bg-gray-700 text-white"

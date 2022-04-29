@@ -7,9 +7,55 @@ const iconRight = document.getElementById('btnRight');
 const searcBtn = document.getElementById('btnSearch');
 const searchInput = document.getElementById('searchInput');
 const popularWrapper = document.querySelector('.popular');
+const dropDownMenu = document.querySelector('.menu');
+const ulMenu = document.querySelector('.ulMenu');
+const popularBtn = document.getElementById('popular');
+const topRatedBtn = document.getElementById('topRated');
+const upcomingBtn = document.getElementById('upcoming');
+const menuNav = document.querySelector('.menuNav');
+const burger = document.querySelector('.burger');
+const body = document.querySelector('body');
+burger.addEventListener('click', () => {
+	menuNav.classList.toggle('active');
+	burger.classList.toggle('active');
+	body.classList.toggle('lock');
+});
 let pages = 1;
-let movieStatus = 'movie';
+let movieStatus = 'popular';
 let search;
+popularBtn.addEventListener('click', () => {
+	wrapper.innerHTML = '';
+	pages = 1;
+	menuNav.classList.toggle('active');
+	burger.classList.toggle('active');
+	body.classList.toggle('lock');
+	movieStatus = 'popular';
+	popularWrapper.innerHTML = 'Popular';
+	fetchingMovies();
+});
+topRatedBtn.addEventListener('click', () => {
+	wrapper.innerHTML = '';
+	pages = 1;
+	menuNav.classList.toggle('active');
+	burger.classList.toggle('active');
+	body.classList.toggle('lock');
+	movieStatus = 'top_rated';
+	popularWrapper.innerHTML = 'Top Rated';
+	fetchingMovies();
+});
+upcomingBtn.addEventListener('click', () => {
+	wrapper.innerHTML = '';
+	pages = 1;
+	menuNav.classList.toggle('active');
+	burger.classList.toggle('active');
+	body.classList.toggle('lock');
+	movieStatus = 'upcoming';
+	popularWrapper.innerHTML = 'Up Coming';
+	fetchingMovies();
+});
+dropDownMenu.addEventListener('click', () => {
+	ulMenu.classList.toggle('hidden');
+});
 btnNext.addEventListener('click', () => {
 	if (pages < 15) {
 		pages++;
@@ -69,22 +115,27 @@ const btnDisable = () => {
 	iconRight.classList.add('text-gray-500');
 };
 // https://api.themoviedb.org/3/movie/550?api_key=
-const fetchingMovies = async (searchValue) => {
-	if (movieStatus === 'movie') {
-		const res = await fetch(
-			`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${pages}`,
-		);
-		const data = await res.json();
-
-		console.log(data);
-		if (data.success !== false) {
-			for (let i = 0; i < 20; i++) {
-				carts(data.results[i]);
-			}
+const fetchPopularMovies = async (genre) => {
+	const res = await fetch(
+		`https://api.themoviedb.org/3/movie/${genre}?api_key=${API_KEY}&language=en-US&page=${pages}`,
+	);
+	const data = await res.json();
+	if (data.success !== false) {
+		for (let i = 0; i < 20; i++) {
+			carts(data.results[i]);
 		}
-		pagesChecker();
-
-		popularWrapper.innerHTML = 'Popular';
+	}
+	pagesChecker();
+};
+const fetchingMovies = (searchValue) => {
+	if (movieStatus === 'popular') {
+		fetchPopularMovies('popular');
+	}
+	if (movieStatus === 'top_rated') {
+		fetchPopularMovies('top_rated');
+	}
+	if (movieStatus === 'upcoming') {
+		fetchPopularMovies('upcoming');
 	}
 	if (movieStatus === 'search') {
 		searchMovies(searchValue);
@@ -126,7 +177,6 @@ const carts = (movie) => {
           class="text-sm border-[3px] rounded-full p-1 ${
 						movie.vote_average < 6.5 ? 'border-yellow-400' : 'border-green-400'
 					}
-						
 					 rate font-bold text-white bg-gray-800">${movie.vote_average * 10}<span
             class="text-[8px]">%</span></span>
       </div>
