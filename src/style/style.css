@@ -21,7 +21,6 @@ p {
 }
 
 .rate {
-  position: absolute;
   top: -19px;
   left: 10px;
 }
@@ -91,5 +90,23 @@ p {
   }
   .menuNav.active {
     top: 0;
+  }
+}
+.card img {
+  transition: 0.2s all ease-in;
+}
+.card:hover img {
+  opacity: 0.9;
+  min-width: 110%;
+}
+.card:hover .card-title {
+  font-size: 1.1rem;
+}
+.para {
+  max-width: 230px;
+}
+@media (min-width: 425px) {
+  .para {
+    max-width: 350px;
   }
 }

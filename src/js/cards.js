@@ -104,7 +104,7 @@ const searchMovies = async (searchValue) => {
 	}
 	if (!data.success) {
 		for (let i = 0; i < 20; i++) {
-			carts(data.results[i]);
+			cards(data.results[i]);
 		}
 	}
 };
@@ -120,9 +120,10 @@ const fetchPopularMovies = async (genre) => {
 		`https://api.themoviedb.org/3/movie/${genre}?api_key=${API_KEY}&language=en-US&page=${pages}`,
 	);
 	const data = await res.json();
+	console.log(data);
 	if (data.success !== false) {
 		for (let i = 0; i < 20; i++) {
-			carts(data.results[i]);
+			cards(data.results[i]);
 		}
 	}
 	pagesChecker();
@@ -163,21 +164,21 @@ const pagesChecker = () => {
 	}
 };
 
-const carts = (movie) => {
+const cards = (movie) => {
 	wrapper.innerHTML += `
- <div class="p-4 w-48 ">
+	<div class="p-4 w-48 card">
       <img loading="lazy" src="${
 				movie.poster_path
 					? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`
 					: 'https://www.ceeol.com/images/no-image.jpg'
 			}" alt="${movie.title ? movie.title : 'film photo'}"
-        class="w-full rounded-lg shadow-sm shadow-black cursor-pointer object-cover ">
+        class="w-full rounded-lg shadow-sm shadow-black cursor-pointer object-cover">
       <div class="relative">
         <span
           class="text-sm border-[3px] rounded-full p-1 ${
 						movie.vote_average < 6.5 ? 'border-yellow-400' : 'border-green-400'
 					}
-					 rate font-bold text-white bg-gray-800">${movie.vote_average * 10}<span
+					 rate absolute font-bold text-white bg-gray-800">${movie.vote_average * 10}<span
             class="text-[8px]">%</span></span>
       </div>
       <div class="mt-5">
