@@ -92,10 +92,8 @@ p {
     top: 0;
   }
 }
-.card img {
-  transition: 0.2s all ease-in;
-}
-.card:hover img {
+
+.card:hover .cardImg {
   opacity: 0.9;
   min-width: 110%;
 }
@@ -103,10 +101,18 @@ p {
   font-size: 1.1rem;
 }
 .para {
-  max-width: 230px;
+  min-width: 180px;
 }
-@media (min-width: 425px) {
+@media (min-width: 567px) {
   .para {
-    max-width: 350px;
+    min-width: 220px;
   }
+}
+
+.cardModal {
+  display: none;
+}
+
+.card:hover .cardModal {
+  display: flex;
 }
