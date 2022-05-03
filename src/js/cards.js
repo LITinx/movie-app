@@ -195,8 +195,10 @@ const cards = (movie) => {
       </div> 
 				<div class="min-w-fit min-h-fit bg-slate-300 absolute top-10 flex-col sm:flex-row cardModal rounded-2xl z-10"
 					id="modalMenu">
-				<img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${
+				<img src="${
 					movie.backdrop_path
+						? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${movie.backdrop_path}`
+						: 'https://www.ceeol.com/images/no-image.jpg'
 				}" alt=""
 						class="w-60 object-cover h-80 p-3 ">
 				<div class="p-4 md:pl-0 pl-4 pt-2 md:p-6 bg-slate-300 rounded-2xl">
