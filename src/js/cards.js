@@ -210,7 +210,13 @@ const cards = (movie) => {
 					<div class="flex gap-4 items-center">
 						<div class="">
 							<span
-								class="text-lg border-[3px] rounded-full p-2  border-green-400 rate font-bold text-white bg-gray-800">78<span
+								class="text-lg border-[3px] rounded-full p-2  ${
+									movie.vote_average < 6.5
+										? 'border-yellow-400'
+										: 'border-green-400'
+								} rate font-bold text-white bg-gray-800">${
+		movie.vote_average * 10
+	}<span
 									class="text-[8px]">%</span></span>
 						</div>
 						<h6 class="text-md">User Score</h6>
